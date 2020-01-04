@@ -13,15 +13,23 @@ $("ul").on("click", ".delete-button",function(event){
     event.stopPropagation();
 });
 
-    //on pressing the enter key event happens
-$(".new").keypress(function (event) { 
+    //on pressing the enter key new items are added
+$(".new-item").keypress(function (event) { 
     if (event.which === 13) {
         let location = $(this).parent().find("ul");
 
         addLi(this.value, location);
         $(this).val("");
     }
-    
+});
+
+    //add a new list
+$("#new-list").keypress(function (event) { 
+    if (event.which === 13) {
+        alert(this.value);
+        $("body").append("<div class='container'><h1><span class='list'>" + this.value + "</span> <i class='fa fas fa-plus'></i></h1><input type='text' class='new' placeholder='Add New Todo'><ul class='list-item'></ul></div>");
+        $(this).val("");
+    }
 });
 
     //this makes the add new items input box toggle on and off when the pluss sign is pressed
