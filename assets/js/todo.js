@@ -16,7 +16,9 @@ $("ul").on("click", ".delete-button",function(event){
     //on pressing the enter key event happens
 $(".new").keypress(function (event) { 
     if (event.which === 13) {
-        addLi(this.value);
+        let location = $(this).parent().find("ul");
+
+        addLi(this.value, location);
         $(this).val("");
     }
     
@@ -37,7 +39,7 @@ $(".list").click(function(){
 });
 
     //creat new li elements and add conet to them then add them to the ul
-function addLi(content){
+function addLi(content, location){
     let newLi = document.createElement("li");
     let newSpan = document.createElement("span");
 
@@ -47,7 +49,8 @@ function addLi(content){
     $(newLi).append(newSpan);
     $(newLi).append(" " + content);
 
-    $("ul").append(newLi);
+
+    location.append(newLi);
 
     // //this is being done using css
     // listeners(newLi);
