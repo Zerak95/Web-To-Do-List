@@ -56,5 +56,3 @@ function addLi(content){
 // }
 
 // listeners("li");
-
-
