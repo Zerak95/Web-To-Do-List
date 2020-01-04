@@ -25,10 +25,12 @@ $("#new").keypress(function (event) {
     //this makes the add new items input box toggle on and off when the pluss sign is pressed
 $(".fa-plus").click(function() { 
     $("#new").fadeToggle();
+    $("#to-do-list").fadeIn();
 });
 
-$("#container").click(function(){
+$(".list").click(function(){
     $("#to-do-list").fadeToggle();
+    $("#new").fadeOut();
 });
 
     //creat new li elements and add conet to them then add them to the ul
