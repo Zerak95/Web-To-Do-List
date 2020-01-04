@@ -14,7 +14,7 @@ $("ul").on("click", ".delete-button",function(event){
 });
 
     //on pressing the enter key event happens
-$("#new").keypress(function (event) { 
+$(".new").keypress(function (event) { 
     if (event.which === 13) {
         addLi(this.value);
         $(this).val("");
@@ -24,13 +24,16 @@ $("#new").keypress(function (event) {
 
     //this makes the add new items input box toggle on and off when the pluss sign is pressed
 $(".fa-plus").click(function() { 
-    $("#new").fadeToggle();
-    $("#to-do-list").fadeIn();
+    $(this).parent().parent().find(".new").fadeToggle();
+    $(this).parent().parent().find(".list-item").fadeIn();
 });
 
+    //toggles the list items in and out
 $(".list").click(function(){
-    $("#to-do-list").fadeToggle();
-    $("#new").fadeOut();
+    let selectedList = $(this).parent().parent().find(".list-item");
+    $(".list-item").not(selectedList).fadeOut();
+    selectedList.fadeToggle();
+    $(".new").fadeOut();
 });
 
     //creat new li elements and add conet to them then add them to the ul
